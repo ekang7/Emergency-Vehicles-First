@@ -1,0 +1,35 @@
+#BlueJ class context
+comment0.target=Car
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Car2\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment10.params=before\ after
+comment10.target=boolean\ getDirection(Square,\ Square)
+comment11.params=before\ current\ after
+comment11.target=boolean\ didDirectionChange(Square,\ Square,\ Square)
+comment12.params=
+comment12.target=java.util.ArrayList\ getIntersections()
+comment13.params=path\ a
+comment13.target=java.util.ArrayList\ calcTotalPathTime(java.util.ArrayList,\ int)
+comment14.params=s1\ s2
+comment14.target=int\ getDistance(Square,\ Square)
+comment15.params=time
+comment15.target=Square\ getPosition(int)
+comment15.text=\r\n\ \ \ \ public\ Square\ getPosition(int\ time)\ {\r\n\ \ \ \ \ \ \ \ ArrayList<Double>\ timeframes\ \=\ calcTotalPathTime(getIntersections(),\ acceleration);\r\n\ \ \ \ \ \ \ \ int\ timeframe\ \=\ -1;\r\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ timeframes.size();\ i++)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (time\ -\ timeframes.get(i)\ >\ 0)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time\ -\=\ timeframes.get(i);\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\ else\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timeframe\ \=\ i;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\r\n\ \ \ \ \ \ \ \ if\ (timeframe\ \=\=\ -1)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ //int[]\ pos\ \=\ {path.get(path.size()\ -\ 1).getX(),\ path.get(path.size()\ -\ 1).getX()};\r\n\ \ \ \ \ \ \ \ \ \ \ \ //return\ pos;\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ path.get(path.size()\ -\ 1);\r\n\ \ \ \ \ \ \ \ }\r\n\r\n\ \ \ \ \ \ \ \ String\ beginningTurn\ \=\ turns.get(timeframe);\r\n\ \ \ \ \ \ \ \ double\ initialVelocity\ \=\ 4.9248;\r\n\ \ \ \ \ \ \ \ if\ (beginningTurn.equals("l"))\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ initialVelocity\ \=\ 8.53;\r\n\ \ \ \ \ \ \ \ }\r\n\r\n\ \ \ \ \ \ \ \ String\ endTurn\ \=\ turns.get(timeframe\ +\ 1);\r\n\ \ \ \ \ \ \ \ double\ finalVelocity\ \=\ 4.9248;\r\n\ \ \ \ \ \ \ \ if\ (endTurn.equals("l"))\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ finalVelocity\ \=\ 8.53;\r\n\ \ \ \ \ \ \ \ }\r\n\r\n\ \ \ \ \ \ \ \ Square\ beginningSquare\ \=\ path.get(timeframe);\r\n\ \ \ \ \ \ \ \ Square\ endSquare\ \=\ path.get(timeframe\ +\ 1);\r\n\ \ \ \ \ \ \ \ int\ distance\ \=\ getDistance(beginningSquare,\ endSquare);\r\n\r\n\ \ \ \ \ \ \ \ double\ dx\ \=\ (2\ *\ acceleration\ *\ distance\ +\ Math.pow(initialVelocity,\ 2)\ -\ Math.pow(finalVelocity,\ 2))\ /\ (4\ *\ acceleration);\r\n\r\n\ \ \ \ \ \ \ \ double\ accDist\ \=\ distance\ -\ dx;\r\n\r\n\ \ \ \ \ \ \ \ double\ centerTime\ \=\ (Math.sqrt(Math.pow(initialVelocity,\ 2)\ +\ 2\ *\ acceleration\ *\ accDist)\ -\ initialVelocity)\ /\ acceleration;\r\n\r\n\ \ \ \ \ \ \ \ double\ d\ \=\ (Math.pow(time\ *\ acceleration\ +\ initialVelocity,\ 2)\ -\ Math.pow(initialVelocity,\ 2))\ /\ (2\ *\ acceleration);\r\n\ \ \ \ \ \ \ \ if\ (time\ >\ centerTime)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ d\ \=\ (Math.pow(time\ *\ -acceleration\ +\ initialVelocity,\ 2)\ -\ Math.pow(initialVelocity,\ 2))\ /\ (2\ *\ -acceleration)\ +\ accDist;\r\n\ \ \ \ \ \ \ \ }\r\n\r\n\ \ \ \ \ \ \ \ double\ y\ \=\ 0;\r\n\ \ \ \ \ \ \ \ double\ x\ \=\ 0;\r\n\ \ \ \ \ \ \ \ if\ (getDirection(beginningSquare,\ endSquare))\ {\ //\ horizontal\r\n\ \ \ \ \ \ \ \ \ \ \ \ y\ \=\ beginningSquare.getY();\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (endSquare.getX()\ -\ beginningSquare.getX()\ >\ 0)\ {\ //right\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ \=\ beginningSquare.getX()\ +\ d;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\ else\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ \=\ beginningSquare.getX()\ -\ d;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\ else\ {\ //\ vertical\r\n\ \ \ \ \ \ \ \ \ \ \ \ x\ \=\ beginningSquare.getX();\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (endSquare.getY()\ -\ beginningSquare.getY()\ >\ 0)\ {\ //\ down\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ \=\ beginningSquare.getY()\ +\ d;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\ else\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ \=\ beginningSquare.getY()\ -\ d;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\r\n\ \ \ \ \ \ \ \ //int[]\ pos\ \=\ {(int)x,\ (int)y};\r\n\r\n\ \ \ \ \ \ \ \ System.out.println(squares[(int)y][(int)x].toString()\ +\ "\\t"\ +\ squares[(int)y][(int)x].can().toString());\r\n\r\n\ \ \ \ \ \ \ \ Square[]\ abc\ \=\ new\ Square[4];\r\n\ \ \ \ \ \ \ \ abc[0]\ \=\ squares[(int)Math.ceil(y)][(int)Math.ceil(x)];\r\n\ \ \ \ \ \ \ \ abc[1]\ \=\ squares[(int)Math.ceil(y)][(int)Math.floor(x)];\r\n\ \ \ \ \ \ \ \ abc[2]\ \=\ squares[(int)Math.floor(y)][(int)Math.ceil(x)];\r\n\ \ \ \ \ \ \ \ abc[3]\ \=\ squares[(int)Math.floor(y)][(int)Math.floor(x)];\r\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ abc.length;\ i++)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (abc[i].getType()\ \=\=\ 0)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ abc[i];\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ throw\ new\ Error();\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ }\r\n
+comment2.params=start\ end\ squares\ type
+comment2.target=Car(Square,\ Square,\ Square[][],\ int)
+comment3.params=
+comment3.target=int\ getType()
+comment4.params=
+comment4.target=Square\ getStart()
+comment5.params=
+comment5.target=Square\ getEnd()
+comment6.params=start
+comment6.target=void\ setStart(Square)
+comment7.params=
+comment7.target=java.util.ArrayList\ calculatePath2()
+comment8.params=
+comment8.target=java.util.ArrayList\ calculatePath()
+comment9.params=square\ squares
+comment9.target=java.util.ArrayList\ getConnectedSquares(Square,\ Square[][])
+numComments=16

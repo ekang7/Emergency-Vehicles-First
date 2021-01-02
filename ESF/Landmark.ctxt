@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Landmark
+comment1.params=n\ d\ x\ y
+comment1.target=Landmark(java.lang.String,\ java.lang.String,\ int,\ int)
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment3.params=
+comment3.target=java.lang.String\ getDescription()
+comment4.params=
+comment4.target=int\ getX()
+comment5.params=
+comment5.target=int\ getY()
+numComments=6

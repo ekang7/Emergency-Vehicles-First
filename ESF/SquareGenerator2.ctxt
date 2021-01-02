@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=SquareGenerator2
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ SquareGenerator2\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=num
+comment1.target=int\ convert(int)
+comment2.params=x\ y\ length\ squares
+comment2.target=void\ setHorizontal(int,\ int,\ int,\ Square[][])
+comment3.params=x\ y\ length\ squares
+comment3.target=void\ setVertical(int,\ int,\ int,\ Square[][])
+comment4.params=
+comment4.target=Square[][]\ getEmptySquares()
+comment5.params=
+comment5.target=Square[][]\ getSquares()
+numComments=6
